@@ -1,29 +1,57 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-class mahasiswa 
+class siswa; // forward declaration
+
+class orang
 {
-    public: 
-    int nim;
-    void ShowNim()
-    {
-        cout << "No induk: " << nim << endl;
-    }
+private:
+    string nama;
+
+public:
+    void setNama(string pNama);
+    friend class siswa; // siswa boleh akses private orang
 };
 
-int main()
-{ 
-    mahasiswa *mhs = new mahasiswa{1}; // pointer object mhs
-    mhs ->nim = 2;
-    mhs -> ShowNim(); 
+class siswa 
+{
+private:
+    int id;
 
-    delete mhs; 
-    return 0;
+public:    
+    void setId(int pId);
+    void displayAll(orang &a); // diperbaiki (nama harus sama)
+};
+
+// IMPLEMENTASI
+
+void orang::setNama(string pNama)
+{
+    nama = pNama;
 }
 
+void siswa::setId(int pId)
+{
+    id = pId;
+}
 
+void siswa::displayAll(orang &a)
+{             
+    cout << "ID: " << id << endl;
+    cout << "Nama: " << a.nama << endl; // akses private karena friend
+}
 
+// MAIN
+int main()
+{
+    orang joko;
+    joko.setNama("Joko Susilo");
 
+    siswa joko_siswa;
+    joko_siswa.setId(1);
 
+    joko_siswa.displayAll(joko);
 
-
+    return 0;
+}
