@@ -47,3 +47,55 @@ class BelahKetupat
 private:
     double d1, d2, sisi;
 
+    public:
+    void inputData()
+     {
+        cout << "\n--- Input Belah Ketupat ---" << endl;
+        cout << "Diagonal 1: ";
+        cin >> d1;
+        cout << "Diagonal 2: ";
+        cin >> d2;
+        cout << "Sisi: ";
+        cin >> sisi;
+    }
+
+    double hitungLuas()
+    {
+        return 0.5 * d1 * d2;
+    }
+
+    double hitungKeliling()
+    {
+        return 4 * sisi;
+    }
+
+     // Method khusus untuk menghitung keliling Layang-Layang menggunakan akses friend
+    double hitungKelilingLayang(LayangLayang &l)
+    {
+        return 2 * (l.s1 + l.s2);
+    }
+
+    void outputData(LayangLayang &l)
+    {
+        cout << "\n--- Hasil Belah Ketupat ---" << endl;
+        cout << "Luas: " << hitungLuas() << endl;
+        cout << "Keliling: " << hitungKeliling() << endl;
+
+        cout << "\n--- Keliling Layang-Layang (via Friend Method) ---" << endl;
+        cout << "Keliling: " << hitungKelilingLayang(l) << endl;
+    }
+};
+
+int main()
+{
+    LayangLayang layang;
+    BelahKetupat ketupat;
+
+    layang.inputData();
+    ketupat.inputData();
+
+    layang.outputData();
+    ketupat.outputData(layang);
+
+    return 0;
+}`
