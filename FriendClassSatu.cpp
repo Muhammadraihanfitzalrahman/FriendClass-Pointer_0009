@@ -17,6 +17,10 @@ int main()
     mhs ->nim = 2;
     mhs -> ShowNim(); 
 
+    delete mhs; 
+    return 0;
+}
+
 
 
 
