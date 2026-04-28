@@ -5,7 +5,7 @@ class mahasiswa {
 public:
       int nim;
 
-         void showNim() {
+        void showNim() {
         cout << "No Induk = " << nim << endl;
     }
 };
@@ -22,10 +22,7 @@ int main() {
     pMhs->nim = 3;           // Arrow Operator
     pMhs->showNim();
 
-
-
-
-
+    return 0;
 }
 
 
