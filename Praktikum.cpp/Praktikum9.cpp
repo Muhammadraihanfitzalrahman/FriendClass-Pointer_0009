@@ -34,4 +34,11 @@ public:
     // Memberikan akses friend kepada class BelahKetupat
     friend class BelahKetupat;
 
-   
+    void outputData()
+    {
+        cout << "\n--- Hasil Layang-Layang ---" << endl;
+        cout << "Luas: " << hitungLuas() << endl;
+        // Keliling dihitung melalui object BelahKetupat (sesuai instruksi friend)
+    }
+};
+
